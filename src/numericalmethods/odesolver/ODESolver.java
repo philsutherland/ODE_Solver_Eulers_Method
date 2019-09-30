@@ -6,19 +6,15 @@ public abstract class ODESolver {
 	private double h;
 	
 	public ODESolver(ODEEquation equation, double h) {
-		if(equation != null) {
+		if(equation != null) 
 			this.equation = equation;
-		}
-		else {
+		else 
 			throw new CouldNotConstructObjectException("ODESolver");
-		}
 		
-		if(h <= 0) {
+		if(h <= 0) 
 			throw new RuntimeException("Critical Error: The variable h must be above zero!");
-		}
-		else {
+		else 
 			this.h = h;
-		}
 	}
 	
 	public ODESolver(ODESolver source) {
@@ -27,12 +23,10 @@ public abstract class ODESolver {
 	}
 	
 	public void setODEEquation(ODEEquation equation) {
-		if(equation != null) {
+		if(equation != null) 
 			this.equation = equation;
-		}
-		else {
+		else 
 			throw new CouldNotConstructObjectException("ODESolver");
-		}
 	}
 	
 	public ODEEquation getODEEquation() {
@@ -40,12 +34,10 @@ public abstract class ODESolver {
 	}
 	
 	public void setH(double h) {
-		if(h <= 0) {
+		if(h <= 0) 
 			throw new RuntimeException("The variable h must be above zero!");
-		}
-		else {
+		else 
 			this.h = h;
-		}
 	}
 	
 	public double getH() {
@@ -56,18 +48,12 @@ public abstract class ODESolver {
 		return "The equation :: " + this.equation.toString() + " | H :: " + this.h;
 	}
 	
-	public boolean equals(Object source)
-	{
+	public boolean equals(Object source) {
 	    if (source == null)
-	    {
 	      return false;
-	    }
 	    else if (source.getClass() != this.getClass())
-	    {
 	      return false;
-	    }
-	    else
-	    {
+	    else {
 	      ODESolver object = (ODESolver)source;
 	      return ((this.equation.equals(object.equation)) && (this.h == object.h));
 	    }
@@ -76,5 +62,4 @@ public abstract class ODESolver {
 	public abstract ODESolver clone() throws CouldNotConstructObjectException;
 	  
 	public abstract double solveODE(double xInit, double yInit, double xFinal);
-	
 }
