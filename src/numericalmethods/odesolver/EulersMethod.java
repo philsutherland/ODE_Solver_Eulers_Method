@@ -12,9 +12,8 @@ public class EulersMethod extends ODESolver {
 	
 	/** The calling object MUST implement the ODEEquation interface */
 	public double solveODE(double xInit, double yInit, double xFinal) {
-		if(xInit >= xFinal) {
-			throw new RuntimeException("Critical Error: The variable xInit must be great than the variable xFinal!");
-		}
+		if(xInit >= xFinal) 
+			throw new RuntimeException("Critical Error: The variable xInit must be greater than the variable xFinal!");
 		
 		double x = xInit;
 		double y = yInit;
